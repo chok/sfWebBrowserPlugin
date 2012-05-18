@@ -682,7 +682,7 @@ class sfWebBrowser
     }
     
     // Throw an exception if response is not valid XML
-    if (get_class($this->responseXml) != 'SimpleXMLElement')
+    if (!$this->responseXml instanceof SimpleXMLElement)
     {
       $msg = sprintf("Response is not a valid XML string : \n%s", $this->getResponseText());
       throw new sfWebBrowserInvalidResponseException($msg);
